@@ -1,0 +1,26 @@
+{% for message in messages %}
+    <div>
+        <strong>{{message|safe}}</strong>
+    </div>
+{% endfor %}
+
+{{order}}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Upload a file</label>
+
+
+    <input type="file" name="file">
+    <select name="models">
+          <option value="AccountsGeneralledger">AccountsGeneralledger</option>
+          <option value="AccountsGeneralledgerCategory">AccountsGeneralledgerCategory</option>
+          <option value="UsersUser">UsersUser</option>
+
+
+    </select>
+     <button type="submit">Upload</button>
+
+
+
+     <a href="{{post.file.url}}" download="{{post.file.url}}" type="button">Download</a>
+</form>
